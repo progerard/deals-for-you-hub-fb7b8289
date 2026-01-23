@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -39,10 +40,39 @@ const faqItems = [
 ];
 
 const FAQ = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="faq" className="py-16 md:py-24 px-4 md:px-8 bg-muted/30">
+    <section 
+      ref={sectionRef}
+      id="faq" 
+      className="py-16 md:py-24 px-4 md:px-8 bg-muted/30"
+    >
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
+        <div 
+          className={`text-center mb-12 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-gradient mb-4">
             Preguntas Frecuentes
           </h2>
@@ -56,7 +86,14 @@ const FAQ = () => {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-card border border-border/50 rounded-xl px-6 data-[state=open]:shadow-card"
+              className={`bg-card border border-border/50 rounded-xl px-6 data-[state=open]:shadow-card transition-all duration-500 ${
+                isVisible 
+                  ? "opacity-100 translate-y-0" 
+                  : "opacity-0 translate-y-8"
+              }`}
+              style={{ 
+                transitionDelay: isVisible ? `${150 + index * 100}ms` : "0ms" 
+              }}
             >
               <AccordionTrigger className="text-left text-base md:text-lg font-medium hover:no-underline hover:text-primary transition-colors">
                 {item.question}
