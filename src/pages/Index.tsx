@@ -4,6 +4,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/WhatsAppButton";
 import Cart from "@/components/Cart";
+import CookieBanner from "@/components/CookieBanner";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <Footer />
       <FloatingButtons />
       <Cart />
+      <CookieBanner />
     </div>
   );
 };
