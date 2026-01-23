@@ -1,43 +1,8 @@
-import { ShoppingCart, X, Minus, Plus, Trash2, Loader2, MessageCircle, Send, Car } from "lucide-react";
+import { ShoppingCart, X, Minus, Plus, Trash2, MessageCircle, Send, Car } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
-import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { toast } from "@/hooks/use-toast";
 
 const Cart = () => {
-  const { items, removeItem, updateQuantity, total, itemCount, isOpen, setIsOpen, clearCart } = useCart();
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleCheckout = async () => {
-    if (items.length === 0) return;
-
-    setIsLoading(true);
-    try {
-      const lineItems = items.map((item) => ({
-        priceId: item.priceId,
-        quantity: item.quantity,
-      }));
-
-      const { data, error } = await supabase.functions.invoke("create-checkout", {
-        body: { lineItems },
-      });
-
-      if (error) throw error;
-
-      if (data?.url) {
-        clearCart();
-        window.open(data.url, "_blank");
-      }
-    } catch (error: any) {
-      toast({
-        title: "Error",
-        description: "No se pudo procesar el pago. Inténtalo de nuevo.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { items, removeItem, updateQuantity, total, itemCount, isOpen, setIsOpen } = useCart();
 
   const getCartSummary = () => {
     return items.map((item) => `${item.quantity}x ${item.name} (${item.price}€)`).join(", ");
@@ -142,32 +107,11 @@ const Cart = () => {
                     <span className="text-gradient">{total}€</span>
                   </div>
                   
-                  {/* Stripe Payment */}
-                  <button
-                    onClick={handleCheckout}
-                    disabled={isLoading}
-                    className="btn-primary w-full justify-center disabled:opacity-50"
-                  >
-                    {isLoading ? (
-                      <>
-                        <Loader2 className="h-5 w-5 animate-spin" />
-                        Procesando...
-                      </>
-                    ) : (
-                      "💳 Pagar con tarjeta"
-                    )}
-                  </button>
+                  <p className="text-sm text-muted-foreground text-center">
+                    Contacta con nosotros para finalizar tu compra
+                  </p>
 
-                  <div className="relative">
-                    <div className="absolute inset-0 flex items-center">
-                      <span className="w-full border-t border-border" />
-                    </div>
-                    <div className="relative flex justify-center text-xs uppercase">
-                      <span className="bg-card px-2 text-muted-foreground">o contacta</span>
-                    </div>
-                  </div>
-
-                  {/* Alternative Contact Methods */}
+                  {/* Contact Methods */}
                   <div className="grid grid-cols-3 gap-2">
                     <a
                       href={whatsappLink}
