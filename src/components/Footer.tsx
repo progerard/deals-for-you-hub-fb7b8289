@@ -1,4 +1,4 @@
-import { MessageCircle, Shield, Clock, Headphones } from "lucide-react";
+import { MessageCircle, Shield, Clock, Headphones, Send, Users } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -40,17 +40,42 @@ const Footer = () => {
         {/* Contact CTA */}
         <div className="text-center py-8 px-6 rounded-2xl bg-gradient-card border border-border mb-12">
           <h3 className="font-display text-2xl font-bold mb-4">¿Tienes dudas?</h3>
-          <p className="text-muted-foreground mb-6">Escríbenos por WhatsApp y te ayudamos</p>
-          <a
-            href="https://wa.me/34640329880"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105"
-            style={{ background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)' }}
-          >
-            <MessageCircle className="h-5 w-5" />
-            640 329 880
-          </a>
+          <p className="text-muted-foreground mb-6">Contáctanos por cualquiera de estos medios</p>
+          
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://wa.me/34640329880"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105"
+              style={{ background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)' }}
+            >
+              <MessageCircle className="h-5 w-5" />
+              WhatsApp
+            </a>
+            
+            <a
+              href="https://t.me/Gerardo22"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105"
+              style={{ background: 'linear-gradient(135deg, #0088cc 0%, #006699 100%)' }}
+            >
+              <Send className="h-5 w-5" />
+              Telegram
+            </a>
+            
+            <a
+              href="https://www.forocoches.com/foro/private.php?do=newpm&u=Gerardo22"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105"
+              style={{ background: 'linear-gradient(135deg, #ff6600 0%, #cc5200 100%)' }}
+            >
+              <Users className="h-5 w-5" />
+              Forocoches
+            </a>
+          </div>
         </div>
 
         {/* Copyright */}

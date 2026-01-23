@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingButtons from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -9,7 +9,7 @@ const Index = () => {
       <Hero />
       <Products />
       <Footer />
-      <WhatsAppButton />
+      <FloatingButtons />
     </div>
   );
 };
