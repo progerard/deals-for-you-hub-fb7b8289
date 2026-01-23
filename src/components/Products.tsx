@@ -59,8 +59,9 @@ const chatgptProducts = [
 const perplexityProducts = [
   {
     id: "perplexity-pro",
-    name: "Perplexity Pro Anual",
+    name: "Perplexity Pro",
     price: 23,
+    annual: true,
     features: [
       "Suscripción de 1 año completo",
       "Búsquedas ilimitadas con IA",
