@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
 import ContactCTA from "@/components/ContactCTA";
+import LegalModals from "@/components/LegalModals";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <Footer />
       <FloatingButtons />
       <CookieBanner />
+      <LegalModals />
     </div>
   );
 };
