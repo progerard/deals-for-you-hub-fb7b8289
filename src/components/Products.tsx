@@ -111,8 +111,8 @@ const Products = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {chatgptProducts.map((product) => (
-              <ProductCard key={product.id} {...product} />
+            {chatgptProducts.map((product, index) => (
+              <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
         </div>
@@ -129,8 +129,8 @@ const Products = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6 max-w-sm mx-auto">
-            {perplexityProducts.map((product) => (
-              <ProductCard key={product.id} {...product} />
+            {perplexityProducts.map((product, index) => (
+              <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
         </div>
@@ -147,8 +147,8 @@ const Products = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            {canvaProducts.map((product) => (
-              <ProductCard key={product.id} {...product} />
+            {canvaProducts.map((product, index) => (
+              <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
         </div>
