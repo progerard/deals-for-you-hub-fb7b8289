@@ -36,12 +36,10 @@ const Hero = () => {
               Ver productos
             </a>
             <a 
-              href="https://wa.me/34640329880" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="#faq" 
               className="px-6 py-3 rounded-xl border border-border text-foreground font-semibold hover:bg-secondary transition-colors"
             >
-              Contactar
+              Preguntas frecuentes
             </a>
           </div>
         </div>
