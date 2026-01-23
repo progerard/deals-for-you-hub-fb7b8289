@@ -85,6 +85,7 @@ const canvaProducts = [
     id: "kit-marca",
     name: "Kit de Marca",
     price: 40,
+    lifetime: true,
     features: [
       "Configuración en tu propia cuenta",
       "Personalización completa",
