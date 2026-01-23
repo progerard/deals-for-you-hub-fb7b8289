@@ -78,6 +78,30 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Legal Links */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
+          <button
+            onClick={() => document.getElementById("privacy-modal")?.classList.remove("hidden")}
+            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            Política de Privacidad
+          </button>
+          <span className="text-muted-foreground">•</span>
+          <button
+            onClick={() => document.getElementById("legal-modal")?.classList.remove("hidden")}
+            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            Aviso Legal
+          </button>
+          <span className="text-muted-foreground">•</span>
+          <button
+            onClick={() => document.getElementById("terms-modal")?.classList.remove("hidden")}
+            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            Términos y Condiciones
+          </button>
+        </div>
+
         {/* Copyright */}
         <div className="text-center text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Todos los derechos reservados</p>
