@@ -3,6 +3,7 @@ import Products from "@/components/Products";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/WhatsAppButton";
+import Cart from "@/components/Cart";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <FAQ />
       <Footer />
       <FloatingButtons />
+      <Cart />
     </div>
   );
 };

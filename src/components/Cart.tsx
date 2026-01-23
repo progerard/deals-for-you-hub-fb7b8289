@@ -1,0 +1,157 @@
+import { ShoppingCart, X, Minus, Plus, Trash2, Loader2 } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
+
+const Cart = () => {
+  const { items, removeItem, updateQuantity, total, itemCount, isOpen, setIsOpen, clearCart } = useCart();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleCheckout = async () => {
+    if (items.length === 0) return;
+
+    setIsLoading(true);
+    try {
+      const lineItems = items.map((item) => ({
+        priceId: item.priceId,
+        quantity: item.quantity,
+      }));
+
+      const { data, error } = await supabase.functions.invoke("create-checkout", {
+        body: { lineItems },
+      });
+
+      if (error) throw error;
+
+      if (data?.url) {
+        clearCart();
+        window.open(data.url, "_blank");
+      }
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: "No se pudo procesar el pago. Inténtalo de nuevo.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <>
+      {/* Cart Button */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className="fixed bottom-24 right-6 z-40 flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:scale-110 transition-transform"
+      >
+        <ShoppingCart className="h-6 w-6" />
+        {itemCount > 0 && (
+          <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center">
+            {itemCount}
+          </span>
+        )}
+      </button>
+
+      {/* Cart Drawer */}
+      {isOpen && (
+        <div className="fixed inset-0 z-50">
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setIsOpen(false)}
+          />
+          <div className="absolute right-0 top-0 h-full w-full max-w-md bg-card border-l border-border shadow-2xl animate-slide-in-right">
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between p-6 border-b border-border">
+                <h2 className="font-display text-xl font-bold">Tu Carrito</h2>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
+
+              {/* Items */}
+              <div className="flex-1 overflow-y-auto p-6">
+                {items.length === 0 ? (
+                  <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
+                    <ShoppingCart className="h-16 w-16 mb-4 opacity-50" />
+                    <p>Tu carrito está vacío</p>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {items.map((item) => (
+                      <div
+                        key={item.id}
+                        className="flex items-center gap-4 p-4 bg-muted/30 rounded-xl"
+                      >
+                        <div className="flex-1">
+                          <h3 className="font-medium text-foreground">{item.name}</h3>
+                          <p className="text-sm text-primary font-semibold">
+                            {item.price}€
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                            className="w-8 h-8 rounded-lg bg-background flex items-center justify-center hover:bg-muted transition-colors"
+                          >
+                            <Minus className="h-4 w-4" />
+                          </button>
+                          <span className="w-8 text-center font-medium">
+                            {item.quantity}
+                          </span>
+                          <button
+                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                            className="w-8 h-8 rounded-lg bg-background flex items-center justify-center hover:bg-muted transition-colors"
+                          >
+                            <Plus className="h-4 w-4" />
+                          </button>
+                          <button
+                            onClick={() => removeItem(item.id)}
+                            className="w-8 h-8 rounded-lg bg-destructive/10 text-destructive flex items-center justify-center hover:bg-destructive/20 transition-colors ml-2"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Footer */}
+              {items.length > 0 && (
+                <div className="p-6 border-t border-border space-y-4">
+                  <div className="flex items-center justify-between text-lg font-bold">
+                    <span>Total</span>
+                    <span className="text-gradient">{total}€</span>
+                  </div>
+                  <button
+                    onClick={handleCheckout}
+                    disabled={isLoading}
+                    className="btn-primary w-full justify-center disabled:opacity-50"
+                  >
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                        Procesando...
+                      </>
+                    ) : (
+                      "Pagar con tarjeta"
+                    )}
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Cart;
