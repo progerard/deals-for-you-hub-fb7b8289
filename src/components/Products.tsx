@@ -48,6 +48,20 @@ const chatgptProducts = [
   }
 ];
 
+const perplexityProducts = [
+  {
+    name: "Perplexity Pro Anual",
+    price: 23,
+    features: [
+      "Suscripción de 1 año completo",
+      "Búsquedas ilimitadas con IA",
+      "Acceso a GPT-4 y Claude",
+      "Respuestas con fuentes verificadas"
+    ],
+    delay: 0
+  }
+];
+
 const canvaProducts = [
   {
     name: "Canva Pro Edu",
@@ -91,6 +105,24 @@ const Products = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {chatgptProducts.map((product) => (
+              <ProductCard key={product.name} {...product} />
+            ))}
+          </div>
+        </div>
+
+        {/* Perplexity Section */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">
+              <span className="text-gradient">Perplexity Pro</span>
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              El buscador con inteligencia artificial más avanzado
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 max-w-sm mx-auto">
+            {perplexityProducts.map((product) => (
               <ProductCard key={product.name} {...product} />
             ))}
           </div>
