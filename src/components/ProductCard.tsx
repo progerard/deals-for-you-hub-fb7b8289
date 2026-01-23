@@ -1,28 +1,20 @@
-import { Check, Sparkles, ShoppingCart } from "lucide-react";
-import { useCart } from "@/contexts/CartContext";
-import { toast } from "@/hooks/use-toast";
+import { Check, Sparkles, MessageCircle } from "lucide-react";
 
 interface ProductCardProps {
   id: string;
   name: string;
   price: number;
-  priceId: string;
   features: string[];
   popular?: boolean;
   lifetime?: boolean;
   delay?: number;
 }
 
-const ProductCard = ({ id, name, price, priceId, features, popular, lifetime, delay = 0 }: ProductCardProps) => {
-  const { addItem } = useCart();
-
-  const handleAddToCart = () => {
-    addItem({ id, name, price, priceId });
-    toast({
-      title: "Añadido al carrito",
-      description: `${name} se ha añadido a tu carrito.`,
-    });
-  };
+const ProductCard = ({ id, name, price, features, popular, lifetime, delay = 0 }: ProductCardProps) => {
+  const whatsappMessage = encodeURIComponent(
+    `Hola! Me interesa comprar: ${name} (${price}€)`
+  );
+  const whatsappLink = `https://api.whatsapp.com/send?phone=34640329880&text=${whatsappMessage}&type=phone_number&app_absent=0`;
 
   return (
     <div 
@@ -64,13 +56,15 @@ const ProductCard = ({ id, name, price, priceId, features, popular, lifetime, de
         ))}
       </ul>
 
-      <button
-        onClick={handleAddToCart}
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
         className="btn-primary w-full text-center gap-2"
       >
-        <ShoppingCart className="h-5 w-5" />
-        Añadir al carrito
-      </button>
+        <MessageCircle className="h-5 w-5" />
+        Contactar
+      </a>
     </div>
   );
 };

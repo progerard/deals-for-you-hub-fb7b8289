@@ -5,7 +5,6 @@ const chatgptProducts = [
     id: "chatgpt-go",
     name: "ChatGPT Go",
     price: 40,
-    priceId: "price_1SsmDfR1lqiSkLrHbLk2eK2O",
     features: [
       "Acceso completo a GPT-4",
       "Límites generosos de uso",
@@ -18,7 +17,6 @@ const chatgptProducts = [
     id: "chatgpt-teacher",
     name: "ChatGPT Teacher",
     price: 60,
-    priceId: "price_1SsmDlR1lqiSkLrHfplNsj9G",
     features: [
       "Perfecto para educadores",
       "Funciones avanzadas de enseñanza",
@@ -31,7 +29,6 @@ const chatgptProducts = [
     id: "chatgpt-plus",
     name: "ChatGPT Plus",
     price: 70,
-    priceId: "price_1SsmDnR1lqiSkLrHVcprOg3u",
     popular: true,
     features: [
       "Acceso a GPT-4 y GPT-4o",
@@ -45,7 +42,6 @@ const chatgptProducts = [
     id: "chatgpt-pro",
     name: "ChatGPT Pro",
     price: 89,
-    priceId: "price_1SsmDoR1lqiSkLrHhuZ1gxVN",
     features: [
       "Todo lo de Plus incluido",
       "Modo Pro con o1 ilimitado",
@@ -61,7 +57,6 @@ const perplexityProducts = [
     id: "perplexity-pro",
     name: "Perplexity Pro Anual",
     price: 23,
-    priceId: "price_1SsmDqR1lqiSkLrHNNxKmL4L",
     features: [
       "Suscripción de 1 año completo",
       "Búsquedas ilimitadas con IA",
@@ -77,7 +72,6 @@ const canvaProducts = [
     id: "canva-pro-edu",
     name: "Canva Pro Edu",
     price: 10,
-    priceId: "price_1SsmDrR1lqiSkLrHbcsQyKNa",
     lifetime: true,
     features: [
       "Licencia para siempre",
@@ -91,7 +85,6 @@ const canvaProducts = [
     id: "kit-marca",
     name: "Kit de Marca",
     price: 40,
-    priceId: "price_1SsmDsR1lqiSkLrHsIdXpWB3",
     features: [
       "Configuración en tu propia cuenta",
       "Personalización completa",
