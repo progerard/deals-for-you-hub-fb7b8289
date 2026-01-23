@@ -42,12 +42,19 @@ const CookieBanner = () => {
                 >
                   Política de Privacidad
                 </button>
-                {" "}y{" "}
+                ,{" "}
                 <button
                   onClick={() => document.getElementById("legal-modal")?.classList.remove("hidden")}
                   className="text-primary hover:underline"
                 >
                   Aviso Legal
+                </button>
+                {" "}y{" "}
+                <button
+                  onClick={() => document.getElementById("terms-modal")?.classList.remove("hidden")}
+                  className="text-primary hover:underline"
+                >
+                  Términos y Condiciones
                 </button>.
               </p>
             </div>
@@ -144,6 +151,56 @@ const CookieBanner = () => {
             
             <p><strong className="text-foreground">6. Legislación aplicable</strong><br />
             Las presentes condiciones se rigen por la legislación española.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Terms and Conditions Modal */}
+      <div
+        id="terms-modal"
+        className="hidden fixed inset-0 z-[70] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+        onClick={(e) => e.target === e.currentTarget && e.currentTarget.classList.add("hidden")}
+      >
+        <div className="bg-card border border-border rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-hidden">
+          <div className="flex items-center justify-between p-6 border-b border-border">
+            <h2 className="font-display text-xl font-bold">Términos y Condiciones</h2>
+            <button
+              onClick={() => document.getElementById("terms-modal")?.classList.add("hidden")}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+          <div className="p-6 overflow-y-auto max-h-[60vh] text-sm text-muted-foreground space-y-4">
+            <p><strong className="text-foreground">1. Objeto</strong><br />
+            Estos términos regulan la compra de accesos a servicios digitales premium (suscripciones a plataformas como ChatGPT, Canva, etc.) ofrecidos en esta web.</p>
+            
+            <p><strong className="text-foreground">2. Proceso de compra</strong><br />
+            Para realizar una compra, el usuario debe contactar a través de WhatsApp, Telegram o Forocoches. El pago se acordará directamente con el vendedor y la entrega del acceso se realizará de forma inmediata tras la confirmación del pago.</p>
+            
+            <p><strong className="text-foreground">3. Productos digitales</strong><br />
+            Los productos ofrecidos son accesos a cuentas premium de servicios de terceros. No somos propietarios ni afiliados oficiales de dichos servicios. Vendemos accesos legítimos obtenidos de forma autorizada.</p>
+            
+            <p><strong className="text-foreground">4. Precios</strong><br />
+            Todos los precios mostrados incluyen IVA cuando aplique. Los precios pueden variar sin previo aviso. El precio aplicable será el vigente en el momento de la compra.</p>
+            
+            <p><strong className="text-foreground">5. Garantía y soporte</strong><br />
+            Ofrecemos soporte 24/7 para cualquier incidencia con tu cuenta. Si experimentas problemas con tu acceso, contáctanos y lo solucionaremos lo antes posible.</p>
+            
+            <p><strong className="text-foreground">6. Política de reembolsos</strong><br />
+            Debido a la naturaleza digital e inmediata de los productos, no se aceptan devoluciones una vez entregado el acceso. En caso de problemas técnicos no resolubles, se evaluará cada caso individualmente.</p>
+            
+            <p><strong className="text-foreground">7. Uso de los accesos</strong><br />
+            El usuario se compromete a hacer un uso personal de los accesos adquiridos. Está prohibido compartir, revender o transferir los accesos a terceros.</p>
+            
+            <p><strong className="text-foreground">8. Responsabilidad</strong><br />
+            No nos hacemos responsables de cambios en los términos de servicio de las plataformas originales ni de suspensiones de cuentas derivadas del incumplimiento de sus políticas por parte del usuario.</p>
+            
+            <p><strong className="text-foreground">9. Modificaciones</strong><br />
+            Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor desde su publicación en la web.</p>
+            
+            <p><strong className="text-foreground">10. Contacto</strong><br />
+            Para cualquier consulta sobre estos términos, puedes contactarnos a través de WhatsApp, Telegram o Forocoches.</p>
           </div>
         </div>
       </div>
