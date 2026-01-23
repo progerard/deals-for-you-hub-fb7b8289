@@ -5,6 +5,7 @@ const chatgptProducts = [
     id: "chatgpt-go",
     name: "ChatGPT Go",
     price: 40,
+    annual: true,
     features: [
       "Acceso completo a GPT-4",
       "Límites generosos de uso",
@@ -17,6 +18,7 @@ const chatgptProducts = [
     id: "chatgpt-teacher",
     name: "ChatGPT Teacher",
     price: 60,
+    annual: true,
     features: [
       "Perfecto para educadores",
       "Funciones avanzadas de enseñanza",
@@ -30,6 +32,7 @@ const chatgptProducts = [
     name: "ChatGPT Plus",
     price: 70,
     popular: true,
+    annual: true,
     features: [
       "Acceso a GPT-4 y GPT-4o",
       "Generación de imágenes DALL-E",
@@ -42,6 +45,7 @@ const chatgptProducts = [
     id: "chatgpt-pro",
     name: "ChatGPT Pro",
     price: 89,
+    annual: true,
     features: [
       "Todo lo de Plus incluido",
       "Modo Pro con o1 ilimitado",
