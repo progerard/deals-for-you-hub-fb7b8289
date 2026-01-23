@@ -10,7 +10,7 @@ interface ContactModalProps {
 const ContactModal = ({ isOpen, onClose, productName, productPrice }: ContactModalProps) => {
   if (!isOpen) return null;
 
-  const message = encodeURIComponent(`Hola! Me interesa: ${productName} - ${productPrice}€`);
+  const message = encodeURIComponent(`Hola! Me interesa ${productName} por ${productPrice} euros`);
   const whatsappLink = `https://wa.me/34640329880?text=${message}`;
   const telegramLink = `https://t.me/Gerardo22`;
 
