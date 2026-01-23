@@ -1,4 +1,4 @@
-import { Check, Sparkles, MessageCircle } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 
 interface ProductCardProps {
   id: string;
@@ -10,12 +10,7 @@ interface ProductCardProps {
   delay?: number;
 }
 
-const ProductCard = ({ id, name, price, features, popular, lifetime, delay = 0 }: ProductCardProps) => {
-  const whatsappMessage = encodeURIComponent(
-    `Hola! Me interesa comprar: ${name} (${price}€)`
-  );
-  const whatsappLink = `https://api.whatsapp.com/send?phone=34640329880&text=${whatsappMessage}&type=phone_number&app_absent=0`;
-
+const ProductCard = ({ name, price, features, popular, lifetime, delay = 0 }: ProductCardProps) => {
   return (
     <div 
       className="card-product group"
@@ -47,7 +42,7 @@ const ProductCard = ({ id, name, price, features, popular, lifetime, delay = 0 }
         </div>
       </div>
 
-      <ul className="space-y-3 mb-8">
+      <ul className="space-y-3">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start gap-3 text-muted-foreground">
             <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
@@ -55,16 +50,6 @@ const ProductCard = ({ id, name, price, features, popular, lifetime, delay = 0 }
           </li>
         ))}
       </ul>
-
-      <a
-        href={whatsappLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="btn-primary w-full text-center gap-2"
-      >
-        <MessageCircle className="h-5 w-5" />
-        Contactar
-      </a>
     </div>
   );
 };
