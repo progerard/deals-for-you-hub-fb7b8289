@@ -1,4 +1,4 @@
-import { ShoppingCart, X, Minus, Plus, Trash2, Loader2 } from "lucide-react";
+import { ShoppingCart, X, Minus, Plus, Trash2, Loader2, MessageCircle, Send, Car } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
@@ -38,6 +38,17 @@ const Cart = () => {
       setIsLoading(false);
     }
   };
+
+  const getCartSummary = () => {
+    return items.map((item) => `${item.quantity}x ${item.name} (${item.price}€)`).join(", ");
+  };
+
+  const whatsappMessage = encodeURIComponent(
+    `Hola! Me interesa comprar: ${getCartSummary()}. Total: ${total} euros`
+  );
+  const whatsappLink = `https://api.whatsapp.com/send?phone=34640329880&text=${whatsappMessage}&type=phone_number&app_absent=0`;
+  const telegramLink = `https://t.me/Gerardo22`;
+  const forocochesLink = `https://www.forocoches.com/foro/private.php?do=newpm&u=Gerardo22`;
 
   return (
     <>
@@ -130,6 +141,8 @@ const Cart = () => {
                     <span>Total</span>
                     <span className="text-gradient">{total}€</span>
                   </div>
+                  
+                  {/* Stripe Payment */}
                   <button
                     onClick={handleCheckout}
                     disabled={isLoading}
@@ -141,9 +154,54 @@ const Cart = () => {
                         Procesando...
                       </>
                     ) : (
-                      "Pagar con tarjeta"
+                      "💳 Pagar con tarjeta"
                     )}
                   </button>
+
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                      <span className="w-full border-t border-border" />
+                    </div>
+                    <div className="relative flex justify-center text-xs uppercase">
+                      <span className="bg-card px-2 text-muted-foreground">o contacta</span>
+                    </div>
+                  </div>
+
+                  {/* Alternative Contact Methods */}
+                  <div className="grid grid-cols-3 gap-2">
+                    <a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center gap-1 p-3 rounded-xl text-white transition-all duration-300 hover:scale-105"
+                      style={{ background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)' }}
+                    >
+                      <MessageCircle className="h-5 w-5" />
+                      <span className="text-xs font-medium">WhatsApp</span>
+                    </a>
+                    
+                    <a
+                      href={telegramLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center gap-1 p-3 rounded-xl text-white transition-all duration-300 hover:scale-105"
+                      style={{ background: 'linear-gradient(135deg, #0088cc 0%, #006699 100%)' }}
+                    >
+                      <Send className="h-5 w-5" />
+                      <span className="text-xs font-medium">Telegram</span>
+                    </a>
+
+                    <a
+                      href={forocochesLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-col items-center gap-1 p-3 rounded-xl text-white transition-all duration-300 hover:scale-105"
+                      style={{ background: 'linear-gradient(135deg, #FF6B00 0%, #CC5500 100%)' }}
+                    >
+                      <Car className="h-5 w-5" />
+                      <span className="text-xs font-medium">FC</span>
+                    </a>
+                  </div>
                 </div>
               )}
             </div>
