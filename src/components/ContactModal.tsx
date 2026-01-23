@@ -1,4 +1,4 @@
-import { MessageCircle, Send, X } from "lucide-react";
+import { MessageCircle, Send, X, Car } from "lucide-react";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -14,9 +14,9 @@ const ContactModal = ({ isOpen, onClose, productName, productPrice }: ContactMod
   const message = encodeURIComponent(
     `Hola! Me interesa ${productName} por ${productPrice} euros`
   );
-  // Formato más compatible (y con `text=` bien definido)
   const whatsappLink = `https://api.whatsapp.com/send?phone=${phone}&text=${message}&type=phone_number&app_absent=0`;
   const telegramLink = `https://t.me/Gerardo22`;
+  const forocochesLink = `https://www.forocoches.com/foro/private.php?do=newpm&u=Gerardo22`;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -67,6 +67,18 @@ const ContactModal = ({ isOpen, onClose, productName, productPrice }: ContactMod
           >
             <Send className="h-6 w-6" />
             <span>Telegram</span>
+          </a>
+
+          <a
+            href={forocochesLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            style={{ background: 'linear-gradient(135deg, #FF6B00 0%, #CC5500 100%)' }}
+            onClick={onClose}
+          >
+            <Car className="h-6 w-6" />
+            <span>Forocoches</span>
           </a>
         </div>
       </div>
