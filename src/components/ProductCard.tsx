@@ -1,4 +1,4 @@
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, Crown } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface ProductCardProps {
@@ -15,65 +15,92 @@ interface ProductCardProps {
 const ProductCard = ({ name, price, features, popular, lifetime, annual, index = 0 }: ProductCardProps) => {
   return (
     <motion.div 
-      className="card-product group"
-      initial={{ opacity: 0, y: 30 }}
+      className={`card-product group ${popular ? 'card-product-popular' : ''}`}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "-80px" }}
       transition={{ 
-        duration: 0.5, 
+        duration: 0.6, 
         delay: index * 0.1,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }}
-      whileHover={{ 
-        y: -8,
-        transition: { duration: 0.3 }
+        ease: [0.21, 0.47, 0.32, 0.98]
       }}
     >
+      {/* Popular badge */}
       {popular && (
-        <div className="absolute -top-px left-1/2 -translate-x-1/2">
-          <div className="bg-gradient-primary px-4 py-1 rounded-b-lg">
-            <span className="text-xs font-semibold text-primary-foreground flex items-center gap-1">
-              <Sparkles className="h-3 w-3" />
-              Popular
+        <motion.div 
+          className="absolute -top-px left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 + 0.3 }}
+        >
+          <div className="bg-gradient-primary px-5 py-1.5 rounded-b-xl shadow-glow">
+            <span className="text-xs font-bold text-primary-foreground flex items-center gap-1.5 uppercase tracking-wide">
+              <Crown className="h-3.5 w-3.5" />
+              Más Popular
             </span>
           </div>
-        </div>
+        </motion.div>
       )}
       
+      {/* Lifetime badge */}
       {lifetime && (
-        <div className="absolute -top-px left-1/2 -translate-x-1/2">
-          <div className="px-4 py-1 rounded-b-lg" style={{ background: 'linear-gradient(135deg, hsl(280 80% 60%) 0%, hsl(320 80% 55%) 100%)' }}>
-            <span className="text-xs font-semibold text-white">Para siempre</span>
+        <motion.div 
+          className="absolute -top-px left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 + 0.3 }}
+        >
+          <div className="bg-gradient-accent px-5 py-1.5 rounded-b-xl shadow-glow-accent">
+            <span className="text-xs font-bold text-white flex items-center gap-1.5 uppercase tracking-wide">
+              <Sparkles className="h-3.5 w-3.5" />
+              Para siempre
+            </span>
           </div>
-        </div>
+        </motion.div>
       )}
 
-      <div className="mb-6 pt-2">
-        <h3 className="font-display text-xl font-bold text-foreground mb-2">{name}</h3>
-        <div className="flex items-baseline gap-1">
-          <span className="text-4xl font-bold text-gradient">{price}€</span>
-          {annual && <span className="text-sm text-muted-foreground">/año</span>}
+      {/* Card content */}
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="mb-8 pt-4">
+          <h3 className="font-display text-2xl font-bold text-foreground mb-4">{name}</h3>
+          <div className="flex items-baseline gap-2">
+            <span className="text-5xl font-extrabold text-gradient">{price}€</span>
+            {annual && <span className="text-base text-muted-foreground font-medium">/año</span>}
+          </div>
         </div>
+
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8" />
+
+        {/* Features */}
+        <ul className="space-y-4">
+          {features.map((feature, featureIndex) => (
+            <motion.li 
+              key={featureIndex} 
+              className="flex items-start gap-4"
+              initial={{ opacity: 0, x: -15 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.4, 
+                delay: (index * 0.1) + (featureIndex * 0.08) + 0.3
+              }}
+            >
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
+                <Check className="h-3.5 w-3.5 text-primary" />
+              </div>
+              <span className="text-muted-foreground text-base leading-relaxed">{feature}</span>
+            </motion.li>
+          ))}
+        </ul>
       </div>
 
-      <ul className="space-y-3">
-        {features.map((feature, featureIndex) => (
-          <motion.li 
-            key={featureIndex} 
-            className="flex items-start gap-3 text-muted-foreground"
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ 
-              duration: 0.3, 
-              delay: (index * 0.1) + (featureIndex * 0.05) + 0.2
-            }}
-          >
-            <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-            <span className="text-sm">{feature}</span>
-          </motion.li>
-        ))}
-      </ul>
+      {/* Hover glow effect */}
+      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
+           style={{ boxShadow: 'inset 0 0 60px hsl(142 70% 50% / 0.05)' }} />
     </motion.div>
   );
 };
