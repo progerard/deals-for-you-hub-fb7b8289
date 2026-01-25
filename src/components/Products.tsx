@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import ProductCard from "./ProductCard";
 
 const chatgptProducts = [
@@ -12,7 +13,6 @@ const chatgptProducts = [
       "Ideal para uso personal",
       "Soporte incluido"
     ],
-    delay: 0
   },
   {
     id: "chatgpt-teacher",
@@ -25,7 +25,6 @@ const chatgptProducts = [
       "Herramientas pedagógicas",
       "Soporte prioritario"
     ],
-    delay: 100
   },
   {
     id: "chatgpt-plus",
@@ -39,7 +38,6 @@ const chatgptProducts = [
       "Navegación web en tiempo real",
       "Plugins y GPTs personalizados"
     ],
-    delay: 200
   },
   {
     id: "chatgpt-pro",
@@ -52,7 +50,6 @@ const chatgptProducts = [
       "Máxima capacidad de cómputo",
       "Ideal para profesionales"
     ],
-    delay: 300
   }
 ];
 
@@ -68,7 +65,6 @@ const perplexityProducts = [
       "Acceso a GPT-4 y Claude",
       "Respuestas con fuentes verificadas"
     ],
-    delay: 0
   }
 ];
 
@@ -84,7 +80,6 @@ const canvaProducts = [
       "Herramientas de diseño avanzadas",
       "Almacenamiento ilimitado"
     ],
-    delay: 0
   },
   {
     id: "kit-marca",
@@ -97,25 +92,39 @@ const canvaProducts = [
       "Colores y fuentes de marca",
       "Gestión de activos de marca"
     ],
-    delay: 100
   }
 ];
 
+const SectionHeader = ({ title, subtitle, gradient = "primary" }: { title: string; subtitle: string; gradient?: "primary" | "accent" }) => (
+  <motion.div 
+    className="text-center mb-16"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.6 }}
+  >
+    <h2 className="section-title mb-6">
+      <span className={gradient === "primary" ? "text-gradient" : "text-gradient-accent"}>{title}</span>
+    </h2>
+    <p className="section-subtitle">{subtitle}</p>
+  </motion.div>
+);
+
 const Products = () => {
   return (
-    <section id="productos" className="py-20 px-4">
-      <div className="container max-w-6xl mx-auto">
-        {/* ChatGPT Section */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">
-              Planes <span className="text-gradient">ChatGPT</span>
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Elige el plan que mejor se adapte a tus necesidades
-            </p>
-          </div>
+    <section id="productos" className="py-24 px-4 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/30" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px]" />
 
+      <div className="container max-w-7xl mx-auto relative z-10">
+        {/* ChatGPT Section */}
+        <div className="mb-32">
+          <SectionHeader 
+            title="Planes ChatGPT" 
+            subtitle="Elige el plan que mejor se adapte a tus necesidades de inteligencia artificial"
+          />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {chatgptProducts.map((product, index) => (
               <ProductCard key={product.id} {...product} index={index} />
@@ -124,17 +133,12 @@ const Products = () => {
         </div>
 
         {/* Perplexity Section */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">
-              <span className="text-gradient">Perplexity Pro</span>
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              El buscador con inteligencia artificial más avanzado
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 max-w-sm mx-auto">
+        <div className="mb-32">
+          <SectionHeader 
+            title="Perplexity Pro" 
+            subtitle="El buscador con inteligencia artificial más avanzado del mercado"
+          />
+          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {perplexityProducts.map((product, index) => (
               <ProductCard key={product.id} {...product} index={index} />
             ))}
@@ -143,16 +147,12 @@ const Products = () => {
 
         {/* Canva Section */}
         <div>
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">
-              <span className="text-gradient-accent">Canva Pro</span>
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Herramientas de diseño profesional a tu alcance
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <SectionHeader 
+            title="Canva Pro" 
+            subtitle="Herramientas de diseño profesional a tu alcance"
+            gradient="accent"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {canvaProducts.map((product, index) => (
               <ProductCard key={product.id} {...product} index={index} />
             ))}
