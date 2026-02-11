@@ -15,14 +15,14 @@ const chatgptProducts = [
     ],
   },
   {
-    id: "chatgpt-teacher",
-    name: "ChatGPT Teacher",
+    id: "chatgpt-pro-business",
+    name: "ChatGPT Pro Business",
     price: 60,
     annual: true,
     features: [
-      "Perfecto para educadores",
-      "Funciones avanzadas de enseñanza",
-      "Herramientas pedagógicas",
+      "Ideal para empresas y equipos",
+      "Funciones avanzadas de productividad",
+      "Gestión de usuarios y permisos",
       "Soporte prioritario"
     ],
   },
