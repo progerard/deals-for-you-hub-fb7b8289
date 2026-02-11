@@ -45,7 +45,7 @@ const perplexityProducts = [
   {
     id: "perplexity-pro",
     name: "Perplexity Pro",
-    price: 23,
+    price: 24,
     annual: true,
     features: [
       "Suscripción de 1 año completo",
