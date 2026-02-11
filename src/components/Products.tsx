@@ -15,18 +15,6 @@ const chatgptProducts = [
     ],
   },
   {
-    id: "chatgpt-pro-business",
-    name: "ChatGPT Pro Business",
-    price: 60,
-    annual: true,
-    features: [
-      "Ideal para empresas y equipos",
-      "Funciones avanzadas de productividad",
-      "Gestión de usuarios y permisos",
-      "Soporte prioritario"
-    ],
-  },
-  {
     id: "chatgpt-plus",
     name: "ChatGPT Plus",
     price: 70,
@@ -40,15 +28,15 @@ const chatgptProducts = [
     ],
   },
   {
-    id: "chatgpt-pro",
-    name: "ChatGPT Pro",
+    id: "chatgpt-pro-business",
+    name: "ChatGPT Pro Business",
     price: 89,
     annual: true,
     features: [
-      "Todo lo de Plus incluido",
-      "Modo Pro con o1 ilimitado",
-      "Máxima capacidad de cómputo",
-      "Ideal para profesionales"
+      "Ideal para empresas y equipos",
+      "Funciones avanzadas de productividad",
+      "Gestión de usuarios y permisos",
+      "Soporte prioritario"
     ],
   }
 ];
