@@ -33,10 +33,10 @@ const chatgptProducts = [
     price: 89,
     annual: true,
     features: [
-      "Ideal para empresas y equipos",
-      "Funciones avanzadas de productividad",
-      "Gestión de usuarios y permisos",
-      "Soporte prioritario"
+      "Acceso a GPT-4 y GPT-4o",
+      "Generación de imágenes DALL-E",
+      "Navegación web en tiempo real",
+      "Plugins y GPTs personalizados"
     ],
   }
 ];
