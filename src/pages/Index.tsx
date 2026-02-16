@@ -10,10 +10,14 @@ import LegalModals from "@/components/LegalModals";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Hero />
-      <Products />
-      <ContactCTA />
-      <FAQ />
+      <header>
+        <Hero />
+      </header>
+      <main>
+        <Products />
+        <ContactCTA />
+        <FAQ />
+      </main>
       <Footer />
       <FloatingButtons />
       <CookieBanner />
