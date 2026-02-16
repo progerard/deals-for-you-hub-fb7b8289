@@ -9,10 +9,11 @@ interface ProductCardProps {
   popular?: boolean;
   lifetime?: boolean;
   annual?: boolean;
+  duration?: string;
   index?: number;
 }
 
-const ProductCard = ({ name, price, features, popular, lifetime, annual, index = 0 }: ProductCardProps) => {
+const ProductCard = ({ name, price, features, popular, lifetime, annual, duration, index = 0 }: ProductCardProps) => {
   return (
     <motion.div 
       className={`card-product group ${popular ? 'card-product-popular' : ''}`}
@@ -69,6 +70,7 @@ const ProductCard = ({ name, price, features, popular, lifetime, annual, index =
           <div className="flex items-baseline gap-2">
             <span className="text-5xl font-extrabold text-gradient">{price}€</span>
             {annual && <span className="text-base text-muted-foreground font-medium">/año</span>}
+            {duration && <span className="text-base text-muted-foreground font-medium">/{duration}</span>}
           </div>
         </div>
 

@@ -38,6 +38,18 @@ const chatgptProducts = [
       "Navegación web en tiempo real",
       "Plugins y GPTs personalizados"
     ],
+  },
+  {
+    id: "chatgpt-teacher",
+    name: "ChatGPT Teacher",
+    price: 80,
+    features: [
+      "Vigencia de 18 meses",
+      "Acceso completo a GPT-4",
+      "Herramientas educativas avanzadas",
+      "Soporte incluido"
+    ],
+    duration: "18 meses",
   }
 ];
 
@@ -83,6 +95,46 @@ const canvaProducts = [
   }
 ];
 
+const autodeskProducts = [
+  {
+    id: "autodesk-1y",
+    name: "Autodesk All Apps 1 Año",
+    price: 15,
+    annual: true,
+    features: [
+      "Acceso a todas las apps de Autodesk",
+      "AutoCAD, Revit, 3ds Max y más",
+      "Actualizaciones incluidas",
+      "Licencia educativa verificada"
+    ],
+  },
+  {
+    id: "autodesk-2y",
+    name: "Autodesk All Apps 2 Años",
+    price: 27,
+    features: [
+      "Acceso a todas las apps de Autodesk",
+      "AutoCAD, Revit, 3ds Max y más",
+      "Actualizaciones incluidas",
+      "Licencia educativa verificada"
+    ],
+    duration: "2 años",
+  },
+  {
+    id: "autodesk-3y",
+    name: "Autodesk All Apps 3 Años",
+    price: 40,
+    popular: true,
+    features: [
+      "Acceso a todas las apps de Autodesk",
+      "AutoCAD, Revit, 3ds Max y más",
+      "Actualizaciones incluidas",
+      "Mejor relación calidad-precio"
+    ],
+    duration: "3 años",
+  }
+];
+
 const SectionHeader = ({ title, subtitle, gradient = "primary" }: { title: string; subtitle: string; gradient?: "primary" | "accent" }) => (
   <motion.div 
     className="text-center mb-16"
@@ -113,7 +165,7 @@ const Products = () => {
             title="Planes ChatGPT" 
             subtitle="Elige el plan que mejor se adapte a tus necesidades de inteligencia artificial"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {chatgptProducts.map((product, index) => (
               <ProductCard key={product.id} {...product} index={index} />
             ))}
@@ -134,7 +186,7 @@ const Products = () => {
         </div>
 
         {/* Canva Section */}
-        <div>
+        <div className="mb-32">
           <SectionHeader 
             title="Canva Pro" 
             subtitle="Herramientas de diseño profesional a tu alcance"
@@ -142,6 +194,20 @@ const Products = () => {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {canvaProducts.map((product, index) => (
+              <ProductCard key={product.id} {...product} index={index} />
+            ))}
+          </div>
+        </div>
+
+        {/* Autodesk Section */}
+        <div>
+          <SectionHeader 
+            title="Autodesk All Apps" 
+            subtitle="Todas las herramientas de diseño y arquitectura profesional"
+            gradient="accent"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {autodeskProducts.map((product, index) => (
               <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
