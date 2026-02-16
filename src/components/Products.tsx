@@ -60,9 +60,9 @@ const perplexityProducts = [
     price: 24,
     annual: true,
     features: [
-      "Suscripción de 1 año completo",
+      "Sonar, Gemini 3 Flash/Pro, GPT-5.2",
+      "Claude Sonnet 4.5, Grok 4.1, Kimi K2.5",
       "Búsquedas ilimitadas con IA",
-      "Acceso a GPT-4 y Claude",
       "Respuestas con fuentes verificadas"
     ],
   }
