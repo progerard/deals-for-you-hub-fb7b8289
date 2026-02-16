@@ -68,6 +68,21 @@ const perplexityProducts = [
   }
 ];
 
+const spotifyProducts = [
+  {
+    id: "spotify-premium",
+    name: "Spotify Premium",
+    price: 60,
+    annual: true,
+    features: [
+      "Música sin anuncios",
+      "Descarga para escuchar offline",
+      "Calidad de audio superior",
+      "Escucha en cualquier dispositivo"
+    ],
+  }
+];
+
 const canvaProducts = [
   {
     id: "canva-pro-edu",
@@ -180,6 +195,19 @@ const Products = () => {
           />
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {perplexityProducts.map((product, index) => (
+              <ProductCard key={product.id} {...product} index={index} />
+            ))}
+          </div>
+        </div>
+
+        {/* Spotify Section */}
+        <div className="mb-32">
+          <SectionHeader 
+            title="Spotify Premium" 
+            subtitle="Toda la música que quieras, sin interrupciones"
+          />
+          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
+            {spotifyProducts.map((product, index) => (
               <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
