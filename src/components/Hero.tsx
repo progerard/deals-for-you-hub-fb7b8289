@@ -95,8 +95,10 @@ const Hero = () => {
             </span>
             <br />
             <span className="text-gradient-accent">Canva</span>
+            {', '}
+            <span className="text-gradient">Spotify</span>
             {' & '}
-            <span className="text-gradient">Perplexity</span>
+            <span className="text-gradient-accent">YouTube</span>
           </motion.h1>
 
           {/* Description */}
@@ -128,6 +130,21 @@ const Hero = () => {
             >
               Preguntas frecuentes
             </a>
+          </motion.div>
+          
+          {/* New featured banner image */}
+          <motion.div
+            className="relative mt-12 rounded-2xl overflow-hidden border border-border/50 shadow-2xl max-w-4xl mx-auto"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <img 
+              src="/og-image.png" 
+              alt="venderfc - Cuentas Premium" 
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl" />
           </motion.div>
 
           {/* Trust indicators */}
