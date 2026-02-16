@@ -83,6 +83,21 @@ const spotifyProducts = [
   }
 ];
 
+const youtubeProducts = [
+  {
+    id: "youtube-premium",
+    name: "YouTube Premium",
+    price: 60,
+    annual: true,
+    features: [
+      "Vídeos sin anuncios",
+      "Reproducción en segundo plano",
+      "Descargas para ver offline",
+      "Acceso a YouTube Music Premium"
+    ],
+  }
+];
+
 const canvaProducts = [
   {
     id: "canva-pro-edu",
@@ -222,6 +237,19 @@ const Products = () => {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {canvaProducts.map((product, index) => (
+              <ProductCard key={product.id} {...product} index={index} />
+            ))}
+          </div>
+        </div>
+
+        {/* YouTube Section */}
+        <div className="mb-32">
+          <SectionHeader 
+            title="YouTube Premium" 
+            subtitle="Disfruta de vídeos sin anuncios y música ilimitada"
+          />
+          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
+            {youtubeProducts.map((product, index) => (
               <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
