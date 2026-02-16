@@ -98,7 +98,7 @@ const canvaProducts = [
 const autodeskProducts = [
   {
     id: "autodesk-1y",
-    name: "Autodesk All Apps 1 Año",
+    name: "Autodesk All Apps",
     price: 15,
     annual: true,
     features: [
@@ -110,7 +110,7 @@ const autodeskProducts = [
   },
   {
     id: "autodesk-2y",
-    name: "Autodesk All Apps 2 Años",
+    name: "Autodesk All Apps",
     price: 27,
     features: [
       "Acceso a todas las apps de Autodesk",
@@ -122,7 +122,7 @@ const autodeskProducts = [
   },
   {
     id: "autodesk-3y",
-    name: "Autodesk All Apps 3 Años",
+    name: "Autodesk All Apps",
     price: 40,
     popular: true,
     features: [
