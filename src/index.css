@@ -263,7 +263,7 @@
 
   /* Section titles */
   .section-title {
-    @apply font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight;
+    @apply font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight;
   }
 
   .section-subtitle {
