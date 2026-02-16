@@ -65,9 +65,9 @@ const ProductCard = ({ name, price, features, popular, lifetime, annual, duratio
       {/* Card content */}
       <div className="relative z-10">
         {/* Header */}
-        <div className="mb-8 pt-4">
+        <div className="mb-8 pt-4 text-center">
           <h3 className="font-display text-2xl font-bold text-foreground mb-4">{name}</h3>
-          <div className="flex items-baseline gap-2">
+          <div className="flex items-baseline gap-2 justify-center">
             <span className="text-5xl font-extrabold text-gradient">{price}€</span>
             {annual && <span className="text-base text-muted-foreground font-medium">/año</span>}
             {duration && <span className="text-base text-muted-foreground font-medium">/{duration}</span>}
@@ -78,7 +78,7 @@ const ProductCard = ({ name, price, features, popular, lifetime, annual, duratio
         <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8" />
 
         {/* Features */}
-        <ul className="space-y-4">
+        <ul className="space-y-4 inline-block text-left">
           {features.map((feature, featureIndex) => (
             <motion.li 
               key={featureIndex} 
