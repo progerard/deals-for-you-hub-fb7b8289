@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { Cookie } from "lucide-react";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+  }
+}
+
 const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -8,11 +15,16 @@ const CookieBanner = () => {
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
       setIsVisible(true);
+    } else if (consent === "accepted" && typeof window.gtag === "function") {
+      window.gtag("consent", "update", { analytics_storage: "granted" });
     }
   }, []);
 
   const acceptCookies = () => {
     localStorage.setItem("cookie-consent", "accepted");
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", { analytics_storage: "granted" });
+    }
     setIsVisible(false);
   };
 
