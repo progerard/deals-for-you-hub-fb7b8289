@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import ProductCard from "./ProductCard";
+import ProductBlogLinks from "./ProductBlogLinks";
 
 const chatgptProducts = [
   {
@@ -228,6 +229,7 @@ const Products = () => {
               <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
+          <ProductBlogLinks section="chatgpt" />
         </div>
 
         {/* Perplexity Section */}
@@ -241,6 +243,7 @@ const Products = () => {
               <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
+          <ProductBlogLinks section="perplexity" />
         </div>
 
         {/* Spotify Section */}
@@ -254,6 +257,7 @@ const Products = () => {
               <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
+          <ProductBlogLinks section="spotify" />
         </div>
 
         {/* Gemini Section */}
@@ -267,6 +271,7 @@ const Products = () => {
               <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
+          <ProductBlogLinks section="gemini" />
         </div>
 
         {/* Canva Section */}
@@ -281,6 +286,7 @@ const Products = () => {
               <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
+          <ProductBlogLinks section="canva" />
         </div>
 
         {/* YouTube Section */}
@@ -294,6 +300,7 @@ const Products = () => {
               <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
+          <ProductBlogLinks section="youtube" />
         </div>
 
         {/* Autodesk Section */}
@@ -308,6 +315,7 @@ const Products = () => {
               <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
+          <ProductBlogLinks section="autodesk" />
         </div>
       </div>
     </section>

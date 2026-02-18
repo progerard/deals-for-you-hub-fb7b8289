@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowLeft } from "lucide-react";
-import { getBlogPost } from "@/data/blogPosts";
+import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react";
+import { getBlogPost, blogPosts } from "@/data/blogPosts";
 import { Helmet } from "react-helmet-async";
 
 const BlogPost = () => {
@@ -127,6 +127,42 @@ const BlogPost = () => {
                 </a>
               </div>
             </motion.div>
+
+            {/* Related posts */}
+            <div className="mt-16">
+              <h3 className="font-display text-xl font-bold text-foreground mb-6">Artículos relacionados</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {blogPosts
+                  .filter(p => p.slug !== post.slug)
+                  .slice(0, 4)
+                  .map((relatedPost) => (
+                    <Link
+                      key={relatedPost.slug}
+                      to={`/blog/${relatedPost.slug}`}
+                      className="flex items-start gap-3 p-4 rounded-xl border border-border/50 hover:border-primary/40 bg-card/50 transition-all duration-300 group"
+                    >
+                      <div className="flex-1">
+                        <span className="text-xs font-bold text-primary uppercase tracking-wider">{relatedPost.category}</span>
+                        <h4 className="font-display text-sm font-bold text-foreground mt-1 group-hover:text-primary transition-colors leading-snug">
+                          {relatedPost.title}
+                        </h4>
+                      </div>
+                      <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary flex-shrink-0 mt-1 transition-colors" />
+                    </Link>
+                  ))}
+              </div>
+            </div>
+
+            {/* Back to products */}
+            <div className="mt-8 text-center">
+              <Link
+                to="/#productos"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Ver todos los productos
+              </Link>
+            </div>
           </div>
         </article>
       </div>
