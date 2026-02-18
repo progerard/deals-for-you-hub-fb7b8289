@@ -1,5 +1,4 @@
 import { Star, Quote } from "lucide-react";
-import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -40,30 +39,20 @@ const Testimonials = () => {
   return (
     <section className="py-24 px-4 bg-muted/20 relative overflow-hidden">
       <div className="container max-w-7xl mx-auto relative z-10">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="text-center mb-16">
           <h2 className="section-title mb-6">
             Clientes <span className="text-gradient">Satisfechos</span>
           </h2>
           <p className="section-subtitle">
             Miles de usuarios ya disfrutan de sus cuentas premium al mejor precio
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
+          {testimonials.map((testimonial) => (
+            <div
               key={testimonial.id}
               className="bg-background/60 backdrop-blur-sm border border-border/50 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="flex gap-1 mb-4 text-yellow-400">
                 {[...Array(testimonial.rating)].map((_, i) => (
@@ -87,7 +76,7 @@ const Testimonials = () => {
                   {testimonial.product}
                 </span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
