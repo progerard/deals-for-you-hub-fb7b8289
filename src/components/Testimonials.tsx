@@ -59,7 +59,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
-              className="bg-background/60 backdrop-blur-sm border border-border/50 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
+              className="bg-background/60 backdrop-blur-sm border border-border/50 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -71,14 +71,14 @@ const Testimonials = () => {
                 ))}
               </div>
               
-              <div className="mb-6 relative">
+              <div className="mb-6 relative flex-1">
                 <Quote className="h-8 w-8 text-primary/20 absolute -top-2 -left-2" />
                 <p className="text-muted-foreground relative z-10 pl-4 italic">
                   "{testimonial.content}"
                 </p>
               </div>
 
-              <div className="flex items-center justify-between border-t border-border/50 pt-4">
+              <div className="flex items-center justify-between border-t border-border/50 pt-4 mt-auto">
                 <div>
                   <h4 className="font-semibold text-sm">{testimonial.name}</h4>
                   <p className="text-xs text-muted-foreground">{testimonial.role}</p>
