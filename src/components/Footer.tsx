@@ -111,6 +111,13 @@ const Footer = () => {
 
         {/* Legal Links */}
         <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
+          <a
+            href="/blog"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+          >
+            Blog
+          </a>
+          <span className="text-muted-foreground/50">•</span>
           <button
             onClick={() => document.getElementById("privacy-modal")?.classList.remove("hidden")}
             className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
