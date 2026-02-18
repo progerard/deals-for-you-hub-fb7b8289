@@ -7,6 +7,7 @@ const chatgptProducts = [
     name: "ChatGPT Go",
     price: 40,
     annual: true,
+    priceId: "price_1T2JArR1lqiSkLrHh19BfkS2",
     features: [
       "Acceso completo a GPT-4",
       "Límites generosos de uso",
@@ -20,6 +21,7 @@ const chatgptProducts = [
     price: 70,
     popular: true,
     annual: true,
+    priceId: "price_1T2JAsR1lqiSkLrHuY4YpqUe",
     features: [
       "Acceso a GPT-4 y GPT-4o",
       "Generación de imágenes DALL-E",
@@ -32,6 +34,7 @@ const chatgptProducts = [
     name: "ChatGPT Pro Business",
     price: 89,
     annual: true,
+    priceId: "price_1T2JAtR1lqiSkLrHMEX9102Z",
     features: [
       "Acceso a GPT-4 y GPT-4o",
       "Generación de imágenes DALL-E",
@@ -43,6 +46,7 @@ const chatgptProducts = [
     id: "chatgpt-teacher",
     name: "ChatGPT Teacher",
     price: 80,
+    priceId: "price_1T2JAvR1lqiSkLrHZ13pXRh5",
     features: [
       "Vigencia de 18 meses",
       "Acceso completo a GPT-4",
@@ -59,6 +63,7 @@ const perplexityProducts = [
     name: "Perplexity Pro",
     price: 24,
     annual: true,
+    priceId: "price_1T2JAwR1lqiSkLrHwwdVdRzk",
     features: [
       "Sonar, Gemini 3 Flash/Pro, GPT-5.2",
       "Claude Sonnet 4.5, Grok 4.1, Kimi K2.5",
@@ -74,6 +79,7 @@ const spotifyProducts = [
     name: "Spotify Premium",
     price: 60,
     annual: true,
+    priceId: "price_1T2JAxR1lqiSkLrH6TJRRCGN",
     features: [
       "Música sin anuncios",
       "Descarga para escuchar offline",
@@ -89,6 +95,7 @@ const youtubeProducts = [
     name: "YouTube Premium",
     price: 60,
     annual: true,
+    priceId: "price_1T2JAyR1lqiSkLrHLWD1VJxY",
     features: [
       "Vídeos sin anuncios",
       "Reproducción en segundo plano",
@@ -104,6 +111,7 @@ const geminiProducts = [
     name: "Gemini IA 2TB",
     price: 10,
     annual: true,
+    priceId: "price_1T2JAzR1lqiSkLrHvVbYKEfa",
     features: [
       "2 TB de almacenamiento en la nube",
       "Acceso completo a Gemini Advanced",
@@ -119,6 +127,7 @@ const canvaProducts = [
     name: "Canva Pro Edu",
     price: 10,
     lifetime: true,
+    priceId: "price_1T2JB0R1lqiSkLrHsDXdffHd",
     features: [
       "Licencia para siempre",
       "Millones de plantillas premium",
@@ -131,6 +140,7 @@ const canvaProducts = [
     name: "Kit de Marca",
     price: 40,
     lifetime: true,
+    priceId: "price_1T2JB1R1lqiSkLrH1yobE6lu",
     features: [
       "Configuración en tu propia cuenta",
       "Personalización completa",
@@ -146,6 +156,7 @@ const autodeskProducts = [
     name: "Autodesk All Apps",
     price: 15,
     annual: true,
+    priceId: "price_1T2JB2R1lqiSkLrHh7YClhy3",
     features: [
       "Acceso a todas las apps de Autodesk",
       "AutoCAD, Revit, 3ds Max y más",
@@ -157,6 +168,7 @@ const autodeskProducts = [
     id: "autodesk-2y",
     name: "Autodesk All Apps",
     price: 27,
+    priceId: "price_1T2JB3R1lqiSkLrHPmgqepeq",
     features: [
       "Acceso a todas las apps de Autodesk",
       "AutoCAD, Revit, 3ds Max y más",
@@ -170,6 +182,7 @@ const autodeskProducts = [
     name: "Autodesk All Apps",
     price: 40,
     popular: true,
+    priceId: "price_1T2JB4R1lqiSkLrHmTCbLOkf",
     features: [
       "Acceso a todas las apps de Autodesk",
       "AutoCAD, Revit, 3ds Max y más",
