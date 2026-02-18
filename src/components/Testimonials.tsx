@@ -60,10 +60,9 @@ const Testimonials = () => {
                 ))}
               </div>
               
-              <div className="mb-6 relative flex-1">
-                <Quote className="h-8 w-8 text-primary/20 absolute -top-2 -left-2" />
-                <p className="text-muted-foreground relative z-10 pl-4 italic">
-                  "{testimonial.content}"
+              <div className="mb-6 flex-1">
+                <p className="text-muted-foreground italic">
+                  {testimonial.content}
                 </p>
               </div>
 
