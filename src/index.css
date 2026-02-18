@@ -177,14 +177,15 @@
   .card-product::before {
     content: '';
     @apply absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none;
-    background: radial-gradient(circle at 50% 0%, hsl(142 70% 50% / 0.1) 0%, transparent 60%);
+    background: radial-gradient(circle at 50% 0%, hsl(142 70% 50% / 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, hsl(270 80% 65% / 0.06) 0%, transparent 40%);
     z-index: 0;
   }
 
   .card-product:hover {
     @apply border-primary/40;
     box-shadow: var(--shadow-card-hover);
-    transform: translateY(-8px);
+    transform: translateY(-10px) scale(1.02);
   }
 
   .card-product:hover::before {
@@ -194,7 +195,7 @@
   /* Popular card variant */
   .card-product-popular {
     @apply border-primary/30;
-    background: linear-gradient(160deg, hsl(142 70% 50% / 0.08) 0%, hsl(230 25% 7%) 50%);
+    background: linear-gradient(160deg, hsl(142 70% 50% / 0.08) 0%, hsl(230 25% 9%) 40%, hsl(230 25% 7%) 100%);
   }
 
   .card-product-popular::after {
@@ -203,13 +204,26 @@
     inset: -1px;
     border-radius: inherit;
     padding: 1px;
-    background: var(--gradient-primary);
+    background: conic-gradient(from var(--border-angle, 0deg), hsl(142 70% 50%), hsl(160 70% 45%), hsl(270 80% 65%), hsl(142 70% 50%));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    opacity: 0.5;
+    opacity: 0.6;
     pointer-events: none;
+    animation: rotate-card-border 6s linear infinite;
+  }
+
+  @keyframes rotate-card-border {
+    to {
+      --border-angle: 360deg;
+    }
+  }
+
+  @property --border-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
   }
 
   .btn-primary {
