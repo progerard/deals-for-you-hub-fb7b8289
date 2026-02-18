@@ -15,20 +15,20 @@ interface ProductCardProps {
 
 const ProductCard = ({ name, price, features, popular, lifetime, annual, duration, index = 0 }: ProductCardProps) => {
   return (
-    <motion.div 
+    <motion.div
       className={`card-product group ${popular ? 'card-product-popular' : ''}`}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ 
-        duration: 0.6, 
+      transition={{
+        duration: 0.6,
         delay: index * 0.1,
         ease: [0.21, 0.47, 0.32, 0.98]
       }}
     >
       {/* Popular badge */}
       {popular && (
-        <motion.div 
+        <motion.div
           className="absolute -top-px left-1/2 -translate-x-1/2"
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,10 +43,10 @@ const ProductCard = ({ name, price, features, popular, lifetime, annual, duratio
           </div>
         </motion.div>
       )}
-      
+
       {/* Lifetime badge */}
       {lifetime && (
-        <motion.div 
+        <motion.div
           className="absolute -top-px left-1/2 -translate-x-1/2"
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,14 +80,14 @@ const ProductCard = ({ name, price, features, popular, lifetime, annual, duratio
         {/* Features */}
         <ul className="space-y-4 inline-block text-left">
           {features.map((feature, featureIndex) => (
-            <motion.li 
-              key={featureIndex} 
+            <motion.li
+              key={featureIndex}
               className="flex items-start gap-4"
               initial={{ opacity: 0, x: -15 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ 
-                duration: 0.4, 
+              transition={{
+                duration: 0.4,
                 delay: (index * 0.1) + (featureIndex * 0.08) + 0.3
               }}
             >
@@ -98,11 +98,26 @@ const ProductCard = ({ name, price, features, popular, lifetime, annual, duratio
             </motion.li>
           ))}
         </ul>
+
+        {/* Buy Button */}
+        <div className="mt-8 pt-6 border-t border-border/50">
+          <a
+            href={`https://wa.me/34640329880?text=${encodeURIComponent(`Hola! Me interesa comprar ${name} por ${price}€`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all duration-300 ${popular
+              ? 'bg-gradient-primary text-white shadow-glow hover:shadow-glow-lg hover:-translate-y-1'
+              : 'bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:-translate-y-1'
+              }`}
+          >
+            Comprar ahora
+          </a>
+        </div>
       </div>
 
       {/* Hover glow effect */}
-      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
-           style={{ boxShadow: 'inset 0 0 60px hsl(142 70% 50% / 0.05)' }} />
+      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{ boxShadow: 'inset 0 0 60px hsl(142 70% 50% / 0.05)' }} />
     </motion.div>
   );
 };

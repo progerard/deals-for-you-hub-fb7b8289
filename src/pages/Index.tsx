@@ -7,6 +7,8 @@ import CookieBanner from "@/components/CookieBanner";
 import ContactCTA from "@/components/ContactCTA";
 import LegalModals from "@/components/LegalModals";
 
+import Testimonials from "@/components/Testimonials";
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -15,6 +17,7 @@ const Index = () => {
       </header>
       <main>
         <Products />
+        <Testimonials />
         <ContactCTA />
         <FAQ />
       </main>
