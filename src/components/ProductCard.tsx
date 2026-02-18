@@ -16,7 +16,7 @@ interface ProductCardProps {
 const ProductCard = ({ name, price, features, popular, lifetime, annual, duration, index = 0 }: ProductCardProps) => {
   return (
     <motion.div
-      className={`card-product group ${popular ? 'card-product-popular' : ''}`}
+      className={`card-product group flex flex-col ${popular ? 'card-product-popular' : ''}`}
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -67,7 +67,7 @@ const ProductCard = ({ name, price, features, popular, lifetime, annual, duratio
       <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none z-10" />
 
       {/* Card content */}
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col h-full">
         {/* Header */}
         <div className="mb-8 pt-4 text-center">
           <motion.h3 
@@ -99,7 +99,7 @@ const ProductCard = ({ name, price, features, popular, lifetime, annual, duratio
         </div>
 
         {/* Features */}
-        <ul className="space-y-4 inline-block text-left">
+        <ul className="space-y-4 inline-block text-left flex-1">
           {features.map((feature, featureIndex) => (
             <motion.li
               key={featureIndex}
