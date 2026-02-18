@@ -6,8 +6,8 @@ import FloatingButtons from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
 import ContactCTA from "@/components/ContactCTA";
 import LegalModals from "@/components/LegalModals";
-
 import Testimonials from "@/components/Testimonials";
+import BlogPreview from "@/components/BlogPreview";
 
 const Index = () => {
   return (
@@ -18,6 +18,7 @@ const Index = () => {
       <main>
         <Products />
         <Testimonials />
+        <BlogPreview />
         <ContactCTA />
         <FAQ />
       </main>
