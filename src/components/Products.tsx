@@ -98,6 +98,21 @@ const youtubeProducts = [
   }
 ];
 
+const geminiProducts = [
+  {
+    id: "gemini-ia-2tb",
+    name: "Gemini IA 2TB",
+    price: 10,
+    annual: true,
+    features: [
+      "2 TB de almacenamiento en la nube",
+      "Acceso completo a Gemini Advanced",
+      "Google One Premium incluido",
+      "Soporte prioritario"
+    ],
+  }
+];
+
 const canvaProducts = [
   {
     id: "canva-pro-edu",
@@ -223,6 +238,19 @@ const Products = () => {
           />
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {spotifyProducts.map((product, index) => (
+              <ProductCard key={product.id} {...product} index={index} />
+            ))}
+          </div>
+        </div>
+
+        {/* Gemini Section */}
+        <div className="mb-32">
+          <SectionHeader 
+            title="Gemini IA" 
+            subtitle="Inteligencia artificial de Google con almacenamiento premium"
+          />
+          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
+            {geminiProducts.map((product, index) => (
               <ProductCard key={product.id} {...product} index={index} />
             ))}
           </div>
