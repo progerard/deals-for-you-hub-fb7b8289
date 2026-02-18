@@ -1,5 +1,8 @@
-import { Check, Sparkles, Crown } from "lucide-react";
+import { Check, Sparkles, Crown, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 interface ProductCardProps {
   id: string;
@@ -10,10 +13,41 @@ interface ProductCardProps {
   lifetime?: boolean;
   annual?: boolean;
   duration?: string;
+  priceId?: string;
   index?: number;
 }
 
-const ProductCard = ({ name, price, features, popular, lifetime, annual, duration, index = 0 }: ProductCardProps) => {
+const ProductCard = ({ name, price, features, popular, lifetime, annual, duration, priceId, index = 0 }: ProductCardProps) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleBuy = async () => {
+    if (!priceId) {
+      // Fallback to WhatsApp
+      window.open(
+        `https://wa.me/34640329880?text=${encodeURIComponent(`Hola! Me interesa comprar ${name} por ${price}€`)}`,
+        "_blank"
+      );
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("create-checkout", {
+        body: { priceId, productName: name },
+      });
+
+      if (error) throw error;
+      if (data?.url) {
+        window.open(data.url, "_blank");
+      }
+    } catch (err: any) {
+      console.error("Checkout error:", err);
+      toast.error("Error al procesar el pago. Inténtalo de nuevo.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <motion.div
       className={`card-product group ${popular ? 'card-product-popular' : ''}`}
@@ -101,17 +135,23 @@ const ProductCard = ({ name, price, features, popular, lifetime, annual, duratio
 
         {/* Buy Button */}
         <div className="mt-8 pt-6 border-t border-border/50">
-          <a
-            href={`https://wa.me/34640329880?text=${encodeURIComponent(`Hola! Me interesa comprar ${name} por ${price}€`)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all duration-300 ${popular
+          <button
+            onClick={handleBuy}
+            disabled={loading}
+            className={`w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed ${popular
               ? 'bg-gradient-primary text-white shadow-glow hover:shadow-glow-lg hover:-translate-y-1'
               : 'bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:-translate-y-1'
               }`}
           >
-            Comprar ahora
-          </a>
+            {loading ? (
+              <>
+                <Loader2 className="h-5 w-5 animate-spin" />
+                Procesando...
+              </>
+            ) : (
+              "Comprar ahora"
+            )}
+          </button>
         </div>
       </div>
 
