@@ -10,7 +10,7 @@ const chatgptProducts = [
     annual: true,
     
     features: [
-      "Acceso completo a GPT-4",
+      "Acceso completo a GPT-5.2",
       "Límites generosos de uso",
       "Ideal para uso personal",
       "Soporte incluido"
@@ -24,7 +24,7 @@ const chatgptProducts = [
     annual: true,
     
     features: [
-      "Acceso a GPT-4 y GPT-4o",
+      "Acceso a GPT-5.2",
       "Generación de imágenes DALL-E",
       "Navegación web en tiempo real",
       "Plugins y GPTs personalizados"
@@ -37,7 +37,7 @@ const chatgptProducts = [
     annual: true,
     
     features: [
-      "Acceso a GPT-4 y GPT-4o",
+      "Acceso a GPT-5.2",
       "Generación de imágenes DALL-E",
       "Navegación web en tiempo real",
       "Plugins y GPTs personalizados"
@@ -50,7 +50,7 @@ const chatgptProducts = [
     
     features: [
       "Vigencia de 18 meses",
-      "Acceso completo a GPT-4",
+      "Acceso completo a GPT-5.2",
       "Herramientas educativas avanzadas",
       "Soporte incluido"
     ],
