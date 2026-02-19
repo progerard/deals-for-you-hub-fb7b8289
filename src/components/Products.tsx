@@ -46,7 +46,7 @@ const chatgptProducts = [
   {
     id: "chatgpt-teacher",
     name: "ChatGPT Teacher",
-    price: 60,
+    price: 70,
     
     features: [
       "Vigencia de 18 meses",
