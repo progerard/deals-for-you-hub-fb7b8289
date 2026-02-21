@@ -1,7 +1,10 @@
 import { Sparkles, Zap, Shield, Clock } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Animated gradient orbs */}
@@ -9,30 +12,19 @@ const Hero = () => {
         <motion.div 
           className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[120px]"
           style={{ background: 'radial-gradient(circle, hsl(142 70% 50% / 0.15) 0%, transparent 70%)' }}
-          animate={{ 
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0],
-            y: [0, -30, 0]
-          }}
+          animate={{ scale: [1, 1.2, 1], x: [0, 50, 0], y: [0, -30, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
           className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[100px]"
           style={{ background: 'radial-gradient(circle, hsl(270 80% 65% / 0.12) 0%, transparent 70%)' }}
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            x: [0, -40, 0],
-            y: [0, 40, 0]
-          }}
+          animate={{ scale: [1.2, 1, 1.2], x: [0, -40, 0], y: [0, 40, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
           className="absolute top-1/2 right-1/3 w-[300px] h-[300px] rounded-full blur-[80px]"
           style={{ background: 'radial-gradient(circle, hsl(45 90% 55% / 0.08) 0%, transparent 70%)' }}
-          animate={{ 
-            scale: [1, 1.3, 1],
-            rotate: [0, 180, 360]
-          }}
+          animate={{ scale: [1, 1.3, 1], rotate: [0, 180, 360] }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         />
       </div>
@@ -46,19 +38,9 @@ const Hero = () => {
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-primary/40 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [-20, 20, -20],
-              opacity: [0.2, 0.8, 0.2],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
+            style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+            animate={{ y: [-20, 20, -20], opacity: [0.2, 0.8, 0.2] }}
+            transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
           />
         ))}
       </div>
@@ -73,7 +55,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <Sparkles className="h-4 w-4 text-primary" />
-            <span className="text-sm font-semibold text-primary">Cuentas Premium al mejor precio</span>
+            <span className="text-sm font-semibold text-primary">{t("hero.badge")}</span>
           </motion.div>
 
           {/* Main heading */}
@@ -84,7 +66,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            Accede a{' '}
+            {t("hero.title.access")}{' '}
             <span className="text-gradient relative">
               ChatGPT
               <motion.span 
@@ -109,9 +91,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Consigue acceso a las mejores herramientas de IA y diseño a{' '}
-            <span className="text-foreground font-medium">precios increíbles</span>. 
-            Entrega inmediata y soporte garantizado.
+            {t("hero.description")}{' '}
+            <span className="text-foreground font-medium">{t("hero.description.highlight")}</span>
+            {t("hero.description.end")}
           </motion.p>
 
           {/* CTA buttons */}
@@ -123,28 +105,21 @@ const Hero = () => {
           >
             <a href="#productos" className="btn-primary gap-3 text-lg group">
               <Zap className="h-5 w-5 transition-transform group-hover:scale-110" />
-              Ver productos
+              {t("hero.cta.products")}
             </a>
-            <a 
-              href="#faq" 
-              className="btn-secondary gap-3 text-lg"
-            >
-              Preguntas frecuentes
+            <a href="#faq" className="btn-secondary gap-3 text-lg">
+              {t("hero.cta.faq")}
             </a>
           </motion.div>
           
-          {/* New featured banner image */}
+          {/* Featured banner image */}
           <motion.div
             className="relative mt-12 rounded-2xl overflow-hidden border border-border/50 shadow-2xl max-w-4xl mx-auto"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <img 
-              src="/og-image.png" 
-              alt="venderfc - Cuentas Premium" 
-              className="w-full h-auto object-cover"
-            />
+            <img src="/og-image.png" alt={t("hero.img.alt")} className="w-full h-auto object-cover" />
             <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl" />
           </motion.div>
 
@@ -157,15 +132,15 @@ const Hero = () => {
           >
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5 text-primary" />
-              <span className="text-sm font-medium">Pago seguro</span>
+              <span className="text-sm font-medium">{t("hero.trust.secure")}</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="h-5 w-5 text-primary" />
-              <span className="text-sm font-medium">Entrega inmediata</span>
+              <span className="text-sm font-medium">{t("hero.trust.instant")}</span>
             </div>
             <div className="flex items-center gap-2">
               <Sparkles className="h-5 w-5 text-primary" />
-              <span className="text-sm font-medium">Garantía incluida</span>
+              <span className="text-sm font-medium">{t("hero.trust.warranty")}</span>
             </div>
           </motion.div>
         </div>
