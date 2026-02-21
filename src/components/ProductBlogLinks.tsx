@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 interface RelatedBlogLinkProps {
   slug: string;
@@ -25,7 +26,6 @@ const RelatedBlogLink = ({ slug, title, index = 0 }: RelatedBlogLinkProps) => (
   </motion.div>
 );
 
-// Map product sections to related blog posts
 export const productBlogLinks: Record<string, { slug: string; title: string }[]> = {
   chatgpt: [
     { slug: "chatgpt-plus-vs-gratuito-diferencias", title: "ChatGPT Plus vs Gratuito: ¿Merece la pena?" },
@@ -57,12 +57,13 @@ interface ProductBlogLinksProps {
 }
 
 const ProductBlogLinks = ({ section }: ProductBlogLinksProps) => {
+  const { t } = useTranslation();
   const links = productBlogLinks[section];
   if (!links || links.length === 0) return null;
 
   return (
     <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-      <span className="text-xs text-muted-foreground/60 uppercase tracking-wider font-medium">Artículos relacionados:</span>
+      <span className="text-xs text-muted-foreground/60 uppercase tracking-wider font-medium">{t("products.relatedArticles")}</span>
       {links.map((link, i) => (
         <RelatedBlogLink key={link.slug} {...link} index={i} />
       ))}

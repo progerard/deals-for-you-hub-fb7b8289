@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Cookie } from "lucide-react";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 declare global {
   interface Window {
@@ -10,6 +11,7 @@ declare global {
 
 const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
@@ -45,44 +47,26 @@ const CookieBanner = () => {
             </div>
             <div>
               <p className="text-sm text-foreground">
-                Utilizamos cookies propias y de terceros para mejorar tu experiencia de navegación. 
-                Al hacer clic en "Aceptar", consientes el uso de todas las cookies. 
-                Consulta nuestra{" "}
-                <button
-                  onClick={() => document.getElementById("privacy-modal")?.classList.remove("hidden")}
-                  className="text-primary hover:underline"
-                >
-                  Política de Privacidad
-                </button>
+                {t("cookie.text")}{" "}
+                <button onClick={() => document.getElementById("privacy-modal")?.classList.remove("hidden")}
+                  className="text-primary hover:underline">{t("footer.privacy")}</button>
                 ,{" "}
-                <button
-                  onClick={() => document.getElementById("legal-modal")?.classList.remove("hidden")}
-                  className="text-primary hover:underline"
-                >
-                  Aviso Legal
-                </button>
-                {" "}y{" "}
-                <button
-                  onClick={() => document.getElementById("terms-modal")?.classList.remove("hidden")}
-                  className="text-primary hover:underline"
-                >
-                  Términos y Condiciones
-                </button>.
+                <button onClick={() => document.getElementById("legal-modal")?.classList.remove("hidden")}
+                  className="text-primary hover:underline">{t("footer.legal")}</button>
+                {" "}{t("cookie.and")}{" "}
+                <button onClick={() => document.getElementById("terms-modal")?.classList.remove("hidden")}
+                  className="text-primary hover:underline">{t("footer.terms")}</button>.
               </p>
             </div>
           </div>
           <div className="flex items-center gap-2 flex-shrink-0">
-            <button
-              onClick={rejectCookies}
-              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground border border-border rounded-lg transition-colors"
-            >
-              Rechazar
+            <button onClick={rejectCookies}
+              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground border border-border rounded-lg transition-colors">
+              {t("cookie.reject")}
             </button>
-            <button
-              onClick={acceptCookies}
-              className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary rounded-lg hover:opacity-90 transition-opacity"
-            >
-              Aceptar
+            <button onClick={acceptCookies}
+              className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary rounded-lg hover:opacity-90 transition-opacity">
+              {t("cookie.accept")}
             </button>
           </div>
         </div>

@@ -10,21 +10,24 @@ import ContactCTA from "@/components/ContactCTA";
 import LegalModals from "@/components/LegalModals";
 import Testimonials from "@/components/Testimonials";
 import BlogPreview from "@/components/BlogPreview";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 const Index = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>venderfc - Cuentas Premium al Mejor Precio</title>
-        <meta name="description" content="Compra ChatGPT Plus, Canva Pro, Spotify Premium y más a precios increíbles. Entrega inmediata, soporte 24/7 y garantía." />
+        <title>{t("seo.home.title")}</title>
+        <meta name="description" content={t("seo.home.description")} />
         <link rel="canonical" href="https://venderfc.com/" />
       </Helmet>
       <header>
         <nav className="sr-only" aria-label="Enlaces principales">
           <Link to="/blog">Blog</Link>
-          <a href="#productos">Productos</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contacto">Contacto</a>
+          <a href="#productos">{t("hero.cta.products")}</a>
+          <a href="#faq">{t("hero.cta.faq")}</a>
+          <a href="#contacto">{t("contact.whatsapp")}</a>
         </nav>
         <Hero />
       </header>
