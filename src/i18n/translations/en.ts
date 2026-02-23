@@ -88,6 +88,8 @@ export const en = {
   "feature.mars.2": "Support included",
   "feature.mars.3": "Premium channels included",
   "feature.mars.4": "Annual subscription",
+  "products.iks.title": "IKS Servers",
+  "products.iks.subtitle": "Annual satellite service",
   "products.prometeus.title": "IKS Server Prometeus",
   "products.prometeus.subtitle": "Annual service for VIark and Qviart decoders",
   "products.mars.title": "IKS Server Mars",
