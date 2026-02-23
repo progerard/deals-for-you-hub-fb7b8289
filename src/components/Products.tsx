@@ -173,9 +173,10 @@ const Products = () => {
 
       <div className="container max-w-7xl mx-auto relative z-10">
         <div className="mb-32">
-          <SectionHeader title={t("products.prometeus.title")} subtitle={t("products.prometeus.subtitle")} />
-          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
+          <SectionHeader title={t("products.iks.title")} subtitle={t("products.iks.subtitle")} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {prometesProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
+            {marsProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index + prometesProducts.length} />))}
           </div>
         </div>
 
