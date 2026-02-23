@@ -115,6 +115,16 @@ const Products = () => {
     }
   ];
 
+  const garajesProducts = [
+    {
+      id: "garajes-server",
+      name: "Servidor Privado Garajes",
+      price: 70,
+      annual: true,
+      features: [t("feature.garajes.1"), t("feature.garajes.2"), t("feature.garajes.3"), t("feature.garajes.4")],
+    }
+  ];
+
   const autodeskProducts = [
     {
       id: "autodesk-1y",
@@ -170,9 +180,9 @@ const Products = () => {
         </div>
 
         <div className="mb-32">
-          <SectionHeader title={t("products.mars.title")} subtitle={t("products.mars.subtitle")} />
+          <SectionHeader title={t("products.garajes.title")} subtitle={t("products.garajes.subtitle")} />
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
-            {marsProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
+            {garajesProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
           </div>
         </div>
 
