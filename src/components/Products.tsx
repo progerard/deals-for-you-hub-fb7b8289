@@ -95,6 +95,26 @@ const Products = () => {
     }
   ];
 
+  const prometesProducts = [
+    {
+      id: "prometeus-anual",
+      name: "Prometeus Anual",
+      price: 50,
+      annual: true,
+      features: [t("feature.prometeus.1"), t("feature.prometeus.2"), t("feature.prometeus.3"), t("feature.prometeus.4")],
+    }
+  ];
+
+  const marsProducts = [
+    {
+      id: "mars-gtmedia",
+      name: "Mars GTmedia",
+      price: 40,
+      annual: true,
+      features: [t("feature.mars.1"), t("feature.mars.2"), t("feature.mars.3"), t("feature.mars.4")],
+    }
+  ];
+
   const autodeskProducts = [
     {
       id: "autodesk-1y",
@@ -188,6 +208,20 @@ const Products = () => {
             {youtubeProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
           </div>
           <ProductBlogLinks section="youtube" />
+        </div>
+
+        <div className="mb-32">
+          <SectionHeader title={t("products.prometeus.title")} subtitle={t("products.prometeus.subtitle")} />
+          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
+            {prometesProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
+          </div>
+        </div>
+
+        <div className="mb-32">
+          <SectionHeader title={t("products.mars.title")} subtitle={t("products.mars.subtitle")} />
+          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
+            {marsProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
+          </div>
         </div>
 
         <div>
