@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
 import FAQ from "@/components/FAQ";
@@ -22,13 +22,8 @@ const Index = () => {
         <meta name="description" content={t("seo.home.description")} />
         <link rel="canonical" href="https://venderfc.com/" />
       </Helmet>
+      <Navbar />
       <header>
-        <nav className="sr-only" aria-label="Enlaces principales">
-          <Link to="/blog">Blog</Link>
-          <a href="#productos">{t("hero.cta.products")}</a>
-          <a href="#faq">{t("hero.cta.faq")}</a>
-          <a href="#contacto">{t("contact.whatsapp")}</a>
-        </nav>
         <Hero />
       </header>
       <main>

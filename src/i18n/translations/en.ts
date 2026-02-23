@@ -1,4 +1,15 @@
 export const en = {
+  // Navigation
+  "nav.iks": "IKS Servers",
+  "nav.garajes": "Garajes",
+  "nav.chatgpt": "ChatGPT",
+  "nav.perplexity": "Perplexity",
+  "nav.spotify": "Spotify",
+  "nav.gemini": "Gemini",
+  "nav.canva": "Canva",
+  "nav.youtube": "YouTube",
+  "nav.autodesk": "Autodesk",
+
   // Hero
   "hero.badge": "Premium Accounts at the Best Price",
   "hero.title.access": "Get access to",
