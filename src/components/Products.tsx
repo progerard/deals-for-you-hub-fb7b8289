@@ -109,7 +109,7 @@ const Products = () => {
     {
       id: "mars-gtmedia",
       name: "Servidor IKS Mars",
-      price: 40,
+      price: 50,
       annual: true,
       features: [t("feature.mars.1"), t("feature.mars.2"), t("feature.mars.3"), t("feature.mars.4")],
     }
