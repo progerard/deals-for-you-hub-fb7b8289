@@ -172,7 +172,7 @@ const Products = () => {
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px]" />
 
       <div className="container max-w-7xl mx-auto relative z-10">
-        <div className="mb-32">
+        <div id="iks" className="mb-32 scroll-mt-16">
           <SectionHeader title={t("products.iks.title")} subtitle={t("products.iks.subtitle")} />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {prometesProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
@@ -180,14 +180,14 @@ const Products = () => {
           </div>
         </div>
 
-        <div className="mb-32">
+        <div id="garajes" className="mb-32 scroll-mt-16">
           <SectionHeader title={t("products.garajes.title")} subtitle={t("products.garajes.subtitle")} />
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {garajesProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
           </div>
         </div>
 
-        <div className="mb-32">
+        <div id="chatgpt" className="mb-32 scroll-mt-16">
           <SectionHeader title={t("products.chatgpt.title")} subtitle={t("products.chatgpt.subtitle")} />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {chatgptProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
@@ -195,7 +195,7 @@ const Products = () => {
           <ProductBlogLinks section="chatgpt" />
         </div>
 
-        <div className="mb-32">
+        <div id="perplexity" className="mb-32 scroll-mt-16">
           <SectionHeader title={t("products.perplexity.title")} subtitle={t("products.perplexity.subtitle")} />
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {perplexityProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
@@ -203,7 +203,7 @@ const Products = () => {
           <ProductBlogLinks section="perplexity" />
         </div>
 
-        <div className="mb-32">
+        <div id="spotify" className="mb-32 scroll-mt-16">
           <SectionHeader title={t("products.spotify.title")} subtitle={t("products.spotify.subtitle")} />
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {spotifyProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
@@ -211,7 +211,7 @@ const Products = () => {
           <ProductBlogLinks section="spotify" />
         </div>
 
-        <div className="mb-32">
+        <div id="gemini" className="mb-32 scroll-mt-16">
           <SectionHeader title={t("products.gemini.title")} subtitle={t("products.gemini.subtitle")} />
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {geminiProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
@@ -219,7 +219,7 @@ const Products = () => {
           <ProductBlogLinks section="gemini" />
         </div>
 
-        <div className="mb-32">
+        <div id="canva" className="mb-32 scroll-mt-16">
           <SectionHeader title={t("products.canva.title")} subtitle={t("products.canva.subtitle")} gradient="accent" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {canvaProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
@@ -227,7 +227,7 @@ const Products = () => {
           <ProductBlogLinks section="canva" />
         </div>
 
-        <div className="mb-32">
+        <div id="youtube" className="mb-32 scroll-mt-16">
           <SectionHeader title={t("products.youtube.title")} subtitle={t("products.youtube.subtitle")} />
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {youtubeProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
@@ -235,7 +235,7 @@ const Products = () => {
           <ProductBlogLinks section="youtube" />
         </div>
 
-        <div>
+        <div id="autodesk" className="scroll-mt-16">
           <SectionHeader title={t("products.autodesk.title")} subtitle={t("products.autodesk.subtitle")} gradient="accent" />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {autodeskProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
