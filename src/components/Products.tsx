@@ -163,6 +163,20 @@ const Products = () => {
 
       <div className="container max-w-7xl mx-auto relative z-10">
         <div className="mb-32">
+          <SectionHeader title={t("products.prometeus.title")} subtitle={t("products.prometeus.subtitle")} />
+          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
+            {prometesProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
+          </div>
+        </div>
+
+        <div className="mb-32">
+          <SectionHeader title={t("products.mars.title")} subtitle={t("products.mars.subtitle")} />
+          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
+            {marsProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
+          </div>
+        </div>
+
+        <div className="mb-32">
           <SectionHeader title={t("products.chatgpt.title")} subtitle={t("products.chatgpt.subtitle")} />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {chatgptProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
@@ -208,20 +222,6 @@ const Products = () => {
             {youtubeProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
           </div>
           <ProductBlogLinks section="youtube" />
-        </div>
-
-        <div className="mb-32">
-          <SectionHeader title={t("products.prometeus.title")} subtitle={t("products.prometeus.subtitle")} />
-          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
-            {prometesProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
-          </div>
-        </div>
-
-        <div className="mb-32">
-          <SectionHeader title={t("products.mars.title")} subtitle={t("products.mars.subtitle")} />
-          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
-            {marsProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
-          </div>
         </div>
 
         <div>
