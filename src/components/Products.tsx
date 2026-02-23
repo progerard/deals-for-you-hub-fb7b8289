@@ -98,7 +98,7 @@ const Products = () => {
   const prometesProducts = [
     {
       id: "prometeus-anual",
-      name: "Prometeus Anual",
+      name: "Servidor IKS Prometeus",
       price: 50,
       annual: true,
       features: [t("feature.prometeus.1"), t("feature.prometeus.2"), t("feature.prometeus.3"), t("feature.prometeus.4")],
@@ -108,7 +108,7 @@ const Products = () => {
   const marsProducts = [
     {
       id: "mars-gtmedia",
-      name: "Mars GTmedia",
+      name: "Servidor IKS Mars",
       price: 40,
       annual: true,
       features: [t("feature.mars.1"), t("feature.mars.2"), t("feature.mars.3"), t("feature.mars.4")],
