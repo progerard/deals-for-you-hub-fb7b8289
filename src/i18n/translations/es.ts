@@ -1,7 +1,7 @@
 export const es = {
   // Navigation
   "nav.iks": "Servidores IKS",
-  "nav.garajes": "Garajes",
+  "nav.garajes": "Garajes Privados",
   "nav.chatgpt": "ChatGPT",
   "nav.perplexity": "Perplexity",
   "nav.spotify": "Spotify",
