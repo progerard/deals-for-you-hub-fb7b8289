@@ -87,7 +87,7 @@ export const en = {
   "feature.mars.1": "Compatible with GTmedia",
   "feature.mars.2": "Support included",
   "feature.mars.3": "Premium channels included",
-  "feature.mars.4": "Annual IPTV subscription",
+  "feature.mars.4": "Annual subscription",
   "products.prometeus.title": "IKS Server Prometeus",
   "products.prometeus.subtitle": "Annual service for VIark and Qviart decoders",
   "products.mars.title": "IKS Server Mars",
