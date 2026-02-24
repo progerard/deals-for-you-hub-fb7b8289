@@ -1,3 +1,11 @@
+import { blogPostsBatch1 } from "./blogPosts-batch1";
+import { blogPostsBatch2 } from "./blogPosts-batch2";
+import { blogPostsBatch3 } from "./blogPosts-batch3";
+import { blogPostsBatch4 } from "./blogPosts-batch4";
+import { blogPostsBatch5 } from "./blogPosts-batch5";
+import { blogPostsBatch6 } from "./blogPosts-batch6";
+import { blogPostsBatch7 } from "./blogPosts-batch7";
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -10,7 +18,7 @@ export interface BlogPost {
   keywords: string[];
 }
 
-export const blogPosts: BlogPost[] = [
+const originalPosts: BlogPost[] = [
   {
     slug: "chatgpt-plus-vs-gratuito-diferencias",
     title: "ChatGPT Plus vs Gratuito: ¿Merece la pena pagar?",
@@ -266,6 +274,17 @@ En España, YouTube Premium cuesta **13,99€/mes** (167,88€/año para el plan
 En venderfc ofrecemos YouTube Premium anual por **60€/año**, un 64% de ahorro respecto al precio oficial. Todas las ventajas, sin pagar de más.
     `
   }
+];
+
+export const blogPosts: BlogPost[] = [
+  ...originalPosts,
+  ...blogPostsBatch1,
+  ...blogPostsBatch2,
+  ...blogPostsBatch3,
+  ...blogPostsBatch4,
+  ...blogPostsBatch5,
+  ...blogPostsBatch6,
+  ...blogPostsBatch7,
 ];
 
 export const getBlogPost = (slug: string): BlogPost | undefined => {
