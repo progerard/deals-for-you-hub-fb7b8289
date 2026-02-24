@@ -1,6 +1,5 @@
 export const en = {
   // Navigation
-  "nav.iks": "IKS Servers",
   "nav.garajes": "Private Garages",
   "nav.chatgpt": "ChatGPT",
   "nav.perplexity": "Perplexity",

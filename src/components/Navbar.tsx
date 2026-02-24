@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "@/i18n/LanguageContext";
 
 const navSections = [
-  { key: "iks", href: "#iks" },
   { key: "garajes", href: "#garajes" },
   { key: "chatgpt", href: "#chatgpt" },
   { key: "perplexity", href: "#perplexity" },
