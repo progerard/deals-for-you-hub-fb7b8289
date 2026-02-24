@@ -105,7 +105,7 @@ export const es = {
   "products.prometeus.subtitle": "Servicio anual para decodificadores VIark y Qviart",
   "products.mars.title": "Servidor IKS Mars",
   "products.mars.subtitle": "Servicio para receptores GTmedia",
-  "products.garajes.title": "Servidores Privados Garajes",
+  "products.garajes.title": "Servidores Garajes Privados",
   "products.garajes.subtitle": "Contenido por satélite para decodificadores Enigma2 y cualquier decodificador",
   "feature.garajes.1": "Ver M+ por satélite",
   "feature.garajes.2": "Compatible con Enigma2",

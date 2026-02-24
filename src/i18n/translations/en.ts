@@ -1,7 +1,7 @@
 export const en = {
   // Navigation
   "nav.iks": "IKS Servers",
-  "nav.garajes": "Garajes",
+  "nav.garajes": "Private Garages",
   "nav.chatgpt": "ChatGPT",
   "nav.perplexity": "Perplexity",
   "nav.spotify": "Spotify",
@@ -105,7 +105,7 @@ export const en = {
   "products.prometeus.subtitle": "Annual service for VIark and Qviart decoders",
   "products.mars.title": "IKS Server Mars",
   "products.mars.subtitle": "Service for GTmedia receivers",
-  "products.garajes.title": "Private Servers Garajes",
+  "products.garajes.title": "Private Garages Servers",
   "products.garajes.subtitle": "Satellite content for Enigma2 decoders and any decoder",
   "feature.garajes.1": "Watch M+ via satellite",
   "feature.garajes.2": "Compatible with Enigma2",
