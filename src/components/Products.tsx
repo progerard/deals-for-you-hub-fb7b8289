@@ -95,25 +95,6 @@ const Products = () => {
     }
   ];
 
-  const prometesProducts = [
-    {
-      id: "prometeus-anual",
-      name: "Servidor IKS Prometeus",
-      price: 50,
-      annual: true,
-      features: [t("feature.prometeus.1"), t("feature.prometeus.2"), t("feature.prometeus.3"), t("feature.prometeus.4")],
-    }
-  ];
-
-  const marsProducts = [
-    {
-      id: "mars-gtmedia",
-      name: "Servidor IKS Mars",
-      price: 50,
-      annual: true,
-      features: [t("feature.mars.1"), t("feature.mars.2"), t("feature.mars.3"), t("feature.mars.4")],
-    }
-  ];
 
   const garajesProducts = [
     {
@@ -172,13 +153,6 @@ const Products = () => {
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[120px]" />
 
       <div className="container max-w-7xl mx-auto relative z-10">
-        <div id="iks" className="mb-32 scroll-mt-16">
-          <SectionHeader title={t("products.iks.title")} subtitle={t("products.iks.subtitle")} />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {prometesProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index} />))}
-            {marsProducts.map((product, index) => (<ProductCard key={product.id} {...product} index={index + prometesProducts.length} />))}
-          </div>
-        </div>
 
         <div id="garajes" className="mb-32 scroll-mt-16">
           <SectionHeader title={t("products.garajes.title")} subtitle={t("products.garajes.subtitle")} />
