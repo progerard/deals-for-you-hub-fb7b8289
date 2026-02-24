@@ -72,7 +72,7 @@ const Products = () => {
     {
       id: "gemini-ia-2tb",
       name: "Gemini IA 2TB",
-      price: 10,
+      price: 30,
       annual: true,
       features: [t("feature.gemini.1"), t("feature.gemini.2"), t("feature.gemini.3"), t("feature.gemini.4")],
     }
@@ -118,7 +118,7 @@ const Products = () => {
   const garajesProducts = [
     {
       id: "garajes-server",
-      name: "Servidor Privado Garajes",
+      name: "Servidor Garajes Privados",
       price: 70,
       annual: true,
       features: [t("feature.garajes.1"), t("feature.garajes.2"), t("feature.garajes.3"), t("feature.garajes.4")],
